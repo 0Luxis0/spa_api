@@ -1,0 +1,18 @@
+{
+  "name": "spa_api",
+  "version": "1.0.0",
+  "description": "hehe",
+  "main": "main.js",
+  "scripts": {
+    "start": "lite-server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "spa_api"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "lite-server": "^2.6.1"
+  }
+}
