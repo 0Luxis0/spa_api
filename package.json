@@ -2,7 +2,7 @@
   "name": "spa_api",
   "version": "1.0.0",
   "description": "hehe",
-  "main": "main.js",
+  "main": "./src/main.js",
   "scripts": {
     "start": "lite-server"
   },
