@@ -1,8 +1,15 @@
-import { GithubUser } from "./GithubConn.js"
+import { searchGithubUser } from "./GithubConn.js"
+import { GithubUsers } from "./GithubUsers.js"
 
-export async function getUserData( username ){
+
+export async function consistData( userData ){
   
-  const {name, login} = await GithubUser.search(username)
+  const {login, name, public_repos, followers} = userData
   
-  console.log('githubUserData', name, login)
+  const user = {login, name, public_repos, followers}
+
+  const ghUsers = new GithubUsers(user)
+  
+
+  console.log('githubUserData', login, name, public_repos, followers)
   }
