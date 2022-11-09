@@ -1,16 +1,15 @@
-
 import { searchGithubUser } from "./GithubConn.js"
-import { consistData } from './Handlers.js'
+import { consistData, updateHtml } from './Handlers.js'
 
-
-// document.querySelector('#app').innerHTML = '<div>TEST</div>'
 
 async function btnClickAddUser(){
-
   const userInput = document.querySelector('#userInput').value
+
   const userData = await searchGithubUser(userInput)
-  consistData(userData)
-  }
+
+  const githubUsers = consistData(userData)
+  console.log(githubUsers)
+}
 
 document.querySelector('#addBtn').onclick = btnClickAddUser
 

@@ -1,29 +1,35 @@
+import { updateHtml } from './Handlers.js'
+
 export class GithubUsers{
 
-  constructor(user){
+  constructor(){
 
-    this.githubUsers = []
+    this.githubUsers = this.read()
 
-    const newUser = this.create(user)
-    const usersData = this.read()
+    updateHtml(this.githubUsers)
 
+    this.deleteUser = this.delete
     
   }
 
-  create(user){
-    console.log('user', user)
+  add(user){
+    this.githubUsers.push(user)
+    const data = JSON.stringify(this.githubUsers)
+    localStorage.setItem('githubUsers', data)
+    updateHtml(this.githubUsers)
+  
   }
 
   read(){
-    const usersData = localStorage.getItem('githubUsers')
-    return usersData
+    const usersData = JSON.parse(localStorage.getItem('githubUsers'))
+    return usersData ?? []
   }
+
   update(){
-    const data = JSON.stringify(this.githubUsers)
-    localStorage.setItem('githubUsers', data)
+
   }
 
   delete(){
-
+    console.log('deletado: ', user)
   }
 }
