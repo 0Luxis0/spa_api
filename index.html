@@ -6,34 +6,36 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <title>Document</title>
-
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@700&family=Roboto:wght@700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
   <script src="src/main.js" type="module" defer></script>
   <script>function play(){ new Audio('./public/newFollowers.mp3').play()}</script>
+
 </head>
 <body>
   
   <div class="main">
     <header>
-      <!-- <img OLOGOOG -->
-      <label for="userInput"></label>
-      <input id="userInput" placeholder="Github username">
-      <button id="addBtn"> &plus; </button>
+      <svg id="logo" width="125" height="33" viewBox="0 0 187 33" fill="none" xmlns="http://www.w3.org/2000/svg"></svg>
+      <section class="inputSect">
+        <label for="userInput"></label>
+        <input id="userInput" placeholder="Github username">
+        <button id="addBtn"> <svg id="starBtn" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"></svg>  
+          FAVORITAR </button>
+      </section>
 
     </header>
 
     <table>
-      <thead>
+    <thead>
         <tr>
           <th>User</th>
           <th>Repos</th>
-          <th><button onclick="play()">Followers</button></th>             
+          <th><button class="followers" onclick="play()">Followers</button></th>             
           <th>X</th>
         </tr>
       </thead>
       <tbody id="mainTable">
-        <tr id="firstRow">
-        </tr>
       </tbody>
     </table>
 

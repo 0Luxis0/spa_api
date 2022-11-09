@@ -1,1 +1,88 @@
 
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Roboto', sans-serif;
+  color:#E1E1E6;
+}
+
+:root {
+  --hue: 240;
+  --bg-color: hsl(0, 0%, 9%);
+  --ff-color: hsl(var(--hue), 9%, 89%);
+  font-size: 62.5%;
+}
+
+body {
+  background: var(--bg-color);
+}
+
+.main{
+  padding: 11.5rem 16rem;
+  display: flex;
+  flex-direction: column;
+  gap: 8.7rem;
+}
+
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+#logo{
+  width: 18.628rem;
+  height: 3.275rem;
+}
+.inputSect{
+  display: flex;
+  border-radius: 8px;
+}
+#userInput{
+  height: 4.8rem;
+  width: 46.2rem;
+  background: #06181C;
+
+}
+
+table{
+  border: 1px #4A808C solid;
+  border-radius: 10px;
+}
+tbody{
+  
+  /* overflow-y: scroll; */
+}
+
+.followers{
+  background: none;
+  font-size: 10px;
+}
+
+#addBtn{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 1.2rem 3.2rem;
+  background-color: #065E7C;
+
+  font-weight: 700;
+  font-size: 14px;
+  
+}
+
+.userInfo{
+  display: flex;
+  font-size: 1.8rem;
+}
+
+.userLogo{
+  width: 5.6rem;
+  height: 5.6rem;
+
+  border-radius: 50%;
+
+}

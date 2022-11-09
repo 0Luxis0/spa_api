@@ -1,5 +1,6 @@
 import { searchGithubUser } from "./GithubConn.js"
-import { consistData, updateHtml } from './Handlers.js'
+import { consistData, deleteUser } from './Handlers.js'
+import { logo, starBtn } from './SVGs.js'
 
 
 async function btnClickAddUser(){
@@ -8,7 +9,6 @@ async function btnClickAddUser(){
   const userData = await searchGithubUser(userInput)
 
   const githubUsers = consistData(userData)
-  console.log(githubUsers)
 }
 
 document.querySelector('#addBtn').onclick = btnClickAddUser
@@ -17,3 +17,12 @@ document.querySelector('#addBtn').onclick = btnClickAddUser
 //   const userInput = document.querySelector('#userInput').value
 //   const userData = await getUserData(userInput)
 //   }
+
+function injectSvgs(){
+  document.querySelector('#logo').innerHTML = logo
+  document.querySelector('#starBtn').innerHTML = starBtn
+}
+injectSvgs()
+
+// document.querySelector('#deleteUserBtn').addEventListener("click", deleteUser('grgr'), false);
+// document.querySelector('#deleteUserBtn').onclick = deleteUser;

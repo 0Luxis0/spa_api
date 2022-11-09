@@ -8,28 +8,30 @@ export class GithubUsers{
 
     updateHtml(this.githubUsers)
 
-    this.deleteUser = this.delete
-    
+    // this.deleteUser = this.delete
   }
 
   add(user){
-    this.githubUsers.push(user)
-    const data = JSON.stringify(this.githubUsers)
-    localStorage.setItem('githubUsers', data)
-    updateHtml(this.githubUsers)
-  
+    if (user){
+      this.githubUsers[user.login] = user
+      const data = JSON.stringify(this.githubUsers)
+      localStorage.setItem('githubUsers', data)
+      updateHtml(this.githubUsers)
+    }
   }
 
   read(){
     const usersData = JSON.parse(localStorage.getItem('githubUsers'))
-    return usersData ?? []
+    return usersData ?? {}
   }
 
   update(){
 
   }
 
-  delete(){
+  delete(user){
     console.log('deletado: ', user)
+
+    updateHtml(this.githubUsers)
   }
 }
