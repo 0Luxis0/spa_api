@@ -3,20 +3,14 @@ import { updateHtml } from './Handlers.js'
 export class GithubUsers{
 
   constructor(){
-
     this.githubUsers = this.read()
-
-    updateHtml(this.githubUsers)
-
-    // this.deleteUser = this.delete
   }
 
   add(user){
     if (user){
       this.githubUsers[user.login] = user
-      const data = JSON.stringify(this.githubUsers)
-      localStorage.setItem('githubUsers', data)
-      updateHtml(this.githubUsers)
+      this.update()
+      updateHtml()
     }
   }
 
@@ -26,12 +20,14 @@ export class GithubUsers{
   }
 
   update(){
-
+    const data = JSON.stringify(this.githubUsers)
+    localStorage.setItem('githubUsers', data)
   }
 
   delete(user){
     console.log('deletado: ', user)
-
-    updateHtml(this.githubUsers)
+    delete this.githubUsers[user]
+    this.update()
+    updateHtml()
   }
 }

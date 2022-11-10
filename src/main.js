@@ -1,7 +1,6 @@
 import { searchGithubUser } from "./GithubConn.js"
-import { consistData, deleteUser } from './Handlers.js'
+import { consistData } from './Handlers.js'
 import { logo, starBtn } from './SVGs.js'
-
 
 async function btnClickAddUser(){
   const userInput = document.querySelector('#userInput').value
@@ -12,11 +11,6 @@ async function btnClickAddUser(){
 }
 
 document.querySelector('#addBtn').onclick = btnClickAddUser
-
-// function btnClickDeleteUser(){
-//   const userInput = document.querySelector('#userInput').value
-//   const userData = await getUserData(userInput)
-//   }
 
 function injectSvgs(){
   document.querySelector('#logo').innerHTML = logo

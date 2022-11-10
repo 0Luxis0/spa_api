@@ -2,41 +2,36 @@ import { GithubUsers } from "./GithubUsers.js"
 
 
 const ghUsers = new GithubUsers()
+updateHtml()
 
 export function consistData( userData ){
-  let user = {}
+
   const {login, name, public_repos, followers} = userData
-  user = {login, name, public_repos, followers}
-  ghUsers.add(user)
+
+  ghUsers.add({login, name, public_repos, followers})
 
   return ghUsers.githubUsers
 }
 
-export function updateHtml(data){
+export function updateHtml(){
 
-  const githubUsers = data
+  const githubUsers = ghUsers.githubUsers
   
-  document.$1 = githubUsers
   document.querySelector('#mainTable').innerHTML = ''
   let dataStructure = ''
 
-  console.log(githubUsers)
   Object.keys(githubUsers).forEach(user => {
     
     const userStructure = structUserRow(githubUsers[user])
 
     dataStructure += userStructure
   });
+
   document.querySelector('#mainTable').innerHTML += `${dataStructure}`
-  
-  // window.deleteUser = deleteUser
+  injectDeleteButton()
 }
 
 function structUserRow(user){
-  
-  console.log(user.login)
-  
-  
 
   let userStructure = '<tr>'
   userStructure += `
@@ -50,26 +45,18 @@ function structUserRow(user){
       </div>
     </td>
   `
-  
   Object.getOwnPropertyNames(user).forEach(prop => {
     if (prop == 'login' || prop == 'name' ) return
     userStructure += `<td>${user[prop]}</td>`
   })
-  userStructure += injectDeleteButton(user)
+  userStructure += `<td><button id="deleteUserBtn" user="${user.login}">fese</button></td>`
   userStructure += '</tr>'
   
   return userStructure
 }
 
-export function deleteUser(user, v){
-  console.log("edfplp", user)
-  console.log("v: ", v)
-  // ghUsers.delete(user)
-}
-
 function injectDeleteButton(){
-  let btnStrut = `<td><button id="deleteUserBtn" onclick="deleteUser">fese</button></td>`
-
-
-  return btnStrut
+  document.querySelectorAll('#deleteUserBtn').forEach(btn => {
+    btn.onclick = t => ghUsers.delete(t.target.attributes['user'].value)
+  })
 }

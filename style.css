@@ -50,10 +50,10 @@ table{
   border: 1px #4A808C solid;
   border-radius: 10px;
 }
-tbody{
+/* tbody{
   
-  /* overflow-y: scroll; */
-}
+  // overflow-y: scroll; 
+} */
 
 .followers{
   background: none;
