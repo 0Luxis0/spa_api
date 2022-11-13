@@ -17,6 +17,3 @@ function injectSvgs(){
   document.querySelector('#starBtn').innerHTML = starBtn
 }
 injectSvgs()
-
-// document.querySelector('#deleteUserBtn').addEventListener("click", deleteUser('grgr'), false);
-// document.querySelector('#deleteUserBtn').onclick = deleteUser;

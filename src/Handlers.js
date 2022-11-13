@@ -1,6 +1,5 @@
 import { GithubUsers } from "./GithubUsers.js"
 
-
 const ghUsers = new GithubUsers()
 updateHtml()
 
@@ -21,12 +20,10 @@ export function updateHtml(){
   let dataStructure = ''
 
   Object.keys(githubUsers).forEach(user => {
-    
     const userStructure = structUserRow(githubUsers[user])
 
     dataStructure += userStructure
-  });
-
+  })
   document.querySelector('#mainTable').innerHTML += `${dataStructure}`
   injectDeleteButton()
 }
@@ -49,7 +46,7 @@ function structUserRow(user){
     if (prop == 'login' || prop == 'name' ) return
     userStructure += `<td>${user[prop]}</td>`
   })
-  userStructure += `<td><button id="deleteUserBtn" user="${user.login}">fese</button></td>`
+  userStructure += `<td><button id="deleteUserBtn" user="${user.login}">Remover</button></td>`
   userStructure += '</tr>'
   
   return userStructure
